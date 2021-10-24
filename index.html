@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>br!t PORTFOLIO</title>
+    <link rel="shortcut icon" href="img/brit_web_logo_icon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colorbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.colorbox-min.js"></script>
+    <script>
+        $(function(){
+            //오픈시 무조건 화면 위치를 맨 위로 가져간다.
+//            $("body, html").stop().animate({"scrollTop":0}, 500);
+            var size = $('body').width();
+
+            if (size > 1390) {
+                $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:760});
+            } else if (850 < size && size <= 1389){
+                $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:560});
+            } else if (500 < size && size <= 849){                               
+                $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:456});
+            } else if (size <= 500){  
+                console.log("aaaa");
+                $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:300});
+            };
+
+            $(window).resize(function(){
+                var size = $('body').width();
+                
+                if (size > 1390) {
+                    $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:760});
+                } else if (850 < size && size <= 1389){
+                    $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:560});
+                } else if (500 < size && size <= 849){                               
+                    $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:456});
+                } else if (size <= 500){                               
+                    $(".portfolio_btn").colorbox({iframe:true, innerWidth:'80%', innerHeight:300});
+                };
+            });
+            //현재 스크롤 위치를 찾아서 메뉴 색깔을 바꿔준다.
+            $(window).scroll(function(){
+                var ht = $(window).height();
+                var scroll = $(window).scrollTop();
+
+                if(scroll>=ht*0 && scroll<ht*1){
+                    $("#navTop_box #topMenu li a").removeClass();
+                    $("#navTop_box #topMenu li").eq(0).find('a').addClass("active");
+                }
+                if(scroll>=ht*1 && scroll<ht*2){
+                    $("#navTop_box #topMenu li a").removeClass();
+                    $("#navTop_box #topMenu li").eq(1).find('a').addClass("active");
+                }
+                if(scroll>=ht*2 && scroll<ht*3){
+                    $("#navTop_box #topMenu li a").removeClass();
+                    $("#navTop_box #topMenu li").eq(2).find('a').addClass("active");
+                }
+                if(scroll>=ht*3 && scroll<ht*4){
+                    $("#navTop_box #topMenu li a").removeClass();
+                    $("#navTop_box #topMenu li").eq(3).find('a').addClass("active");
+                }
+            });
+            $(function(){
+            let current = 0;
+            let banner = $(".slide");
+            let id = banner.length;
+            
+            $(".right_arrow").click(function(){
+                let prev = banner.eq(current);
+                move(prev, 0, '-100%');
+                
+                current++;
+                if(current == id){
+                    current=0;
+                }
+                let next = banner.eq(current);
+                move(next, '100%', 0);
+                
+            });
+            $(".left_arrow").click(function(){
+
+                let prev = banner.eq(current);
+                move(prev, 0, '100%');
+                
+                current--;
+                if(current < 0){
+                    current=id-1;
+                }
+                let next = banner.eq(current);
+                move(next, '-100%', 0);
+            });
+            
+            function move(tg, start, end){
+                tg.css('left', start)
+                .stop()
+                .animate({left:end}, 1000);
+            }
+        });
+        });
+        </script>
+</head>
+<body>
+    <!--메뉴-->
+    <nav id="navTop">
+        <div id="navTop_box">
+            <div id="logo" class="clear">
+                <div><img src="img/brit_web_logo.png" alt="logo"></div>
+                <!-- <span>최병일 / CHOI BYEONG IL</span> -->
+            </div>
+        <ul id="topMenu" class="clear">
+            <li><a href="#first" class="active">HOME</a></li>
+            <li><a href="#second">Profile</a></li>
+            <li><a href="#third">PORTFOLIO</a></li>
+        </ul>
+        </div>
+    </nav>
+    <!--첫페이지-->
+    <div class="section s0" id="first">
+        <div class="section_HOME">
+            <h1>to br!t<h1>
+            <h2>WELCOME</h2>
+            <h3>edit by br!t</h3>
+            </div> 
+    </div>
+<!-- 프로파일 영역 -->
+<div class="section s1" id="second">
+    <div class="pr_container clear">
+        <div class="pr_profile">
+            <div>
+                <img src="img/idphoto.jpg" alt="증명사진" width=250>
+            </div>
+            <ul>
+                <li><h2>최 병일</h2></li>
+                <br>
+                <li><i class="far fa-user"></i> 영상 & 모션 지원(신입)</li>
+                <li><i class="far fa-calendar-alt"></i> 1990년 11월 (만30세)</li>
+                <li><i class="far fa-map"></i>서울 공항동 거주</li>
+                <br>
+                <li><i class="fas fa-mobile-alt"></i></i> 010-9090-7555</li>
+                <li><i class="far fa-paper-plane"></i>brightchoi90@naver.com</li>
+                <br>
+                <li><i class="far fa-meh-blank"></i>27" / 32" 최적화 화면&nbsp;<i class="far fa-meh-blank"></i></li>
+            </ul>
+        </div>
+        <div class="right_box">
+            <div class=pr_box_exp_title>
+                <div class="pr_box edu_title clear">
+                    <h3 class="pr_box exp_title">EXPERIENCE</h3>
+                    <div class="pr_date exp_date">2009.04. ~ 2011.05.</div>
+                    <div class="pr_txt exp_txt">
+                        <div>현대백화점 중동점 남성캐쥬얼 SERIES;</div>
+                    </div>
+                </div>
+                <div class="pr_box edu_title clear">
+                    <div class="pr_date exp_date">2011.06.28 ~ 2013.03.27</div>
+                    <div class="pr_txt exp_txt">
+                        <div>제 6포병여단 병장 만기전역</div>
+                    </div>
+                </div>
+                <div class="pr_box edu_title clear">
+                    <div class="pr_date exp_date">2013.04. ~ 2015.01.</div>
+                    <div class="pr_txt exp_txt">
+                        <div>현대백화점 목동점 남성캐쥬얼 SERIES; (Senior)</div>
+                    </div>
+                </div>
+                <div class="pr_box edu_title clear">
+                    <div class="pr_date exp_date">2015.02. ~ 2016.10.</div>
+                    <div class="pr_txt exp_txt">
+                        <div>현대백화점 목동점 컨템포러리 DKNY남성</div>
+                    </div>
+                </div>
+                <div class="pr_box edu_title clear">
+                    <div class="pr_date exp_date">2017.07. ~ 2017.12.</div>
+                    <div class="pr_txt exp_txt">
+                        <div>타투이스트</div>
+                    </div>   
+                </div>
+                <div class="pr_box edu_title clear">
+                    <div class="pr_date exp_date">2020.11. ~ 2021.02.</div>
+                    <div class="pr_txt exp_txt">
+                        <div>신세계백화점 강남점 MONCLER</div>
+                    </div>   
+                </div>
+                <br>
+            </div>
+            <div class=pr_box_edu_title>
+                <div class="pr_box edu_title clear">
+                    <h3 class="pr_title edu_title">EDUCATION</h3>
+                    <div class="pr_date edu_date">2018.02.26 ~ 2020.02.26</div>
+                    <div class="pr_txt edu_txt">
+                        <div>한국항공전문학교</div>
+                        <ul>
+                            <li>- 교육내용 : 항공기정비 (공학사) 졸업</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pr_box edu_title clear">
+                    <div class="pr_date edu_date">2021.05.26 ~ 2021.11.01</div>
+                    <div class="pr_txt edu_txt">
+                        <div>방송정보국제교육원</div>
+                        <ul>
+                            <li>- 교육내용 : 영상편집 & 모션그래픽 수료</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="pr_box cer_box">
+                <h3 class="pr_title cet_title">LICENSE</h3>
+                <div class="pr_date cet_date">
+                    <div>2011. 06.</div>
+                    <div>2018. 08.</div>
+                    <div>2019. 11.</div>
+                </div>
+                <div class="pr_txt cet_txt">
+                    <div>&nbsp;자동차운전면허 1종 보통</div>
+                    <div>&nbsp;소방안전관리자 1급</div>
+                    <div>&nbsp;항공정비사 자격증</div>
+                </div>
+            </div>
+            <div class="ct_box">
+                <div class="ct_inbox">
+                    <div class="ct_title">
+                        <h2>SKILLS</h2>
+                    </div>
+                    <div class="ct_txt">
+                        <ul>
+                            <li><img src="img/ps_icon.png" alt="phone"></li>
+                        </ul>
+                        <ul>
+                            <li><img src="img/ai_icon.png" alt="email"></li>
+                        </ul>
+                        <ul>
+                            <li><img src="img/ae_icon.png" alt="sns"></li>
+                        </ul>
+                        <ul>
+                            <li><img src="img/pr_icon.png" alt="sns"></li>
+                        </ul>
+                        <ul>
+                            <li><img src="img/c4d_icon.png" alt="sns"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!--end 프로파일 영역-->
+    <!--포트폴리오 영역-->
+    <div class="section s2" id="third">
+        <div class="slide_wrap">
+            <!-- 첫번째 영상 -->
+            <div class="slide" style="left:0">
+                <div class="image">
+                    <img src="img/NB_Main.jpg" alt="영상사진">
+                </div>
+                <div class="pf_txt_container">
+                    <h3 class="pf_title">NEW BALANCE 21'F/W CTA</h3>
+                    <table>
+                        <tr>
+                            <td class="pf_name">TITLE (R/T) :</td>
+                            <td class="pf_txt"><h3>NEW BALANCE 21' F/W PROMOTION / (22s)</h3></td>
+                        </tr>
+                        <tr>
+                            <td class="pf_name">Used Tool :</td>
+                            <td class="pf_txt"><h3>Premiere Pro / After Effects / Photoshop</h3></td>
+                        </tr>
+                        <tr>
+                            <td class="pf_name">About Design :</td>
+                            <td class="pf_txt"><h3>창작 50% 모작 50%</h3></td>
+                        </tr>
+                    </table>
+                    <div class="pf_gosite">
+                        <a href="https://www.youtube.com/embed/kQcg6ToBf4M"
+                        class="portfolio_btn">▶ PLAY</a>
+                    </div>
+                    <div class="thumb">
+                        <img src="img/NB_s01.jpg" width="200" alt="">&nbsp;&nbsp;&nbsp;
+                        <img src="img/NB_s02.jpg" width="200" alt="">
+                    </div>
+                </div>
+            </div>
+                        <!-- 두번째 영상 -->
+                        <div class="slide">
+                            <div class="image">
+                                <img src="img/SPOTV_main.jpg" alt="영상사진">
+                            </div>
+                            <div class="pf_txt_container">
+                                <h3 class="pf_title">SPORTS EPL 생중계 방송 LINE-UP</h3>
+                                <table>
+                                    <tr>
+                                        <td class="pf_name">TITLE (R/T):</td>
+                                        <td class="pf_txt"><h3>SPOTV EPL 생중계 LINE-UP (43s)</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pf_name">Used Tool :</td>
+                                        <td class="pf_txt"><h3>Premiere Pro / After Effects / Photoshop</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pf_name">About Design :</td>
+                                        <td class="pf_txt"><h3>창작 70% 모작 30%</h3></td>
+                                    </tr>
+                                </table>
+                                <div class="pf_gosite">
+                                    <a href="https://www.youtube.com/embed/9jRzXDJ2yDQ"
+                                    class="portfolio_btn">▶ PLAY</a>
+                                </div>
+                                <div class="thumb">
+                                    <img src="img/SPOTV_s01.jpg" width="200" alt="">&nbsp;&nbsp;&nbsp;
+                                    <img src="img/SPOTV_s02.jpg" width="200" alt="">
+                                </div>
+                            </div>
+                        </div>
+                                <!-- 세번째 영상 -->
+                                <div class="slide">
+                                    <div class="image">
+                                        <img src="img/TH_main.jpg" alt="영상사진">
+                                    </div>
+                                    <div class="pf_txt_container">
+                                        <h3 class="pf_title">TOMMY HILFIGER 21'F/W CTA</h3>
+                                        <table>
+                                            <tr>
+                                                <td class="pf_name">TITLE (R/T) :</td>
+                                                <td class="pf_txt"><h3>TOMMY HILFIGER 21'F/W PROMOTION (30s)</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pf_name">Used Tool :</td>
+                                                <td class="pf_txt"><h3>Premiere Pro / After Effects / Photoshop</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pf_name">About Design :</td>
+                                                <td class="pf_txt"><h3>창작 60% 모작 40%</h3></td>
+                                            </tr>
+                                        </table>
+                                        <div class="pf_gosite">
+                                            <a href="https://www.youtube.com/embed/79YrvbIShy0"
+                                            class="portfolio_btn">▶ PLAY</a>
+                                        </div>
+                                        <div class="thumb">
+                                            <img src="img/TH_s01.jpg" width="200" alt="">&nbsp;&nbsp;&nbsp;
+                                            <img src="img/TH_s02.jpg" width="200" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 네번째 영상 -->
+                                <div class="slide">
+                                    <div class="image">
+                                        <img src="img/WT_main.jpg" alt="영상사진">
+                                    </div>
+                                    <div class="pf_txt_container">
+                                        <h3 class="pf_title">KAKAO WEBTOON 지옥사원 트레일러</h3>
+                                        <table>
+                                            <tr>
+                                                <td class="pf_name">TITLE (R/T) :</td>
+                                                <td class="pf_txt"><h3>카카오웹툰 지옥사원 트레일러 (59s)</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pf_name">Used Tool :</td>
+                                                <td class="pf_txt"><h3>Premiere Pro / After Effects / Photoshop</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pf_name">About Design :</td>
+                                                <td class="pf_txt"><h3>창작 80% 모작 20%</h3></td>
+                                            </tr>
+                                        </table>
+                                        <div class="pf_gosite">
+                                            <a href="https://www.youtube.com/embed/rAosDcrhKcI"
+                                            class="portfolio_btn">▶ PLAY</a>
+                                        </div>
+                                        <div class="thumb">
+                                            <img src="img/WT_s01.jpg" width="200" alt="">&nbsp;&nbsp;&nbsp;
+                                            <img src="img/WT_s02.jpg" width="200" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="button">
+                            <img src="img/left_btn.png" alt="left" class="left_arrow">
+                            <img src="img/right_btn.png" alt="right" class="right_arrow">
+                        </div>
+        </div>
+    </div> <!--end 포트폴리오 영역-->
+</body>
+</html>
